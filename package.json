@@ -1,0 +1,18 @@
+{
+  "name": "node-grafana",
+  "version": "1.0.0",
+  "description": "a node.js host for grafana",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "grafana"
+  ],
+  "author": "Dan McAulay",
+  "license": "ISC",
+  "dependencies": {
+    "morgan": "^1.5.2",
+    "node-static": "^0.7.6"
+  }
+}
