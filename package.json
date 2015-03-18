@@ -4,7 +4,7 @@
   "description": "a node.js host for grafana",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "keywords": [
     "grafana"
@@ -12,7 +12,8 @@
   "author": "Dan McAulay",
   "license": "ISC",
   "dependencies": {
-    "morgan": "^1.5.2",
+    "colors": "^1.0.3",
+    "http-proxy": "^1.9.0",
     "node-static": "^0.7.6"
   }
 }
