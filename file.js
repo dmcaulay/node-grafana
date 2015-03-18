@@ -1,4 +1,3 @@
-
 var Server = require('node-static').Server;
 
 module.exports = function(dir) {

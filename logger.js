@@ -1,3 +1,4 @@
+require('colors');
 
 var statusColor = function(statusCode) {
   statusCode = statusCode + '';
