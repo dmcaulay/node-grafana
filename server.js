@@ -17,5 +17,3 @@ app.use(file(config.dir));
 http.createServer(app).listen(config.port, function() {
   console.log('listing on port', config.port);
 });
-
-// "stats.gauges.prod.facebook_analytics_service.facebook-analytics-service-sched-prod-01.broker_route_length.ads"
