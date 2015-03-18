@@ -1,40 +1,21 @@
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = '0';
-
 require('colors');
-var config = require('./config');
+var connect = require('connect');
 var http = require('http');
 
-var Server = require('node-static').Server;
-var file = new Server(config.dir);
+var config = require('./config');
+var logger = require('./logger');
+var proxy = require('./proxy');
+var file = require('./file');
 
-var httpProxy = require('http-proxy');
-var proxy = httpProxy.createProxyServer({secure: false});
+var app = connect();
 
-var statusColor = function(statusCode) {
-  statusCode = statusCode + '';
-  var color = 'green';
+app.use(logger);
+app.use(proxy(config.graphite));
+app.use(proxy(config.elasticsearch));
+app.use(file(config.dir));
 
-  if (statusCode >= 500) color = 'red';
-  else if (statusCode >= 400) color = 'yellow';
-  else if (statusCode >= 300) color = 'cyan';
-  return statusCode[color];
-};
-
-var handler = function(req, res) {
-  var startTime = new Date;
-  var log = function() {
-    console.log(statusColor(res.statusCode), (new Date - startTime) + 'ms', req.url); 
-  };
-  if (req.url.match(/^\/graphite/)) {
-    req.url = req.url.replace(/^\/graphite/, '');
-    console.log(req.url)
-    proxy.web(req, res, { target: 'https://localhost:8888' });
-  } else {
-    file.serve(req, res);
-  }
-  res.once('finish', log);
-};
-
-http.createServer(handler).listen(config.port, function() {
-  console.log('serving "' + config.dir + '" at http://' + '127.0.0.1:' + config.port);
+http.createServer(app).listen(config.port, function() {
+  console.log('listing on port', config.port);
 });
+
+// "stats.gauges.prod.facebook_analytics_service.facebook-analytics-service-sched-prod-01.broker_route_length.ads"
