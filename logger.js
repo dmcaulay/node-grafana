@@ -14,7 +14,7 @@ module.exports = function(req, res, next) {
   var startTime = new Date;
   var url = req.url;
   var log = function() {
-    console.log(statusColor(res.statusCode), (new Date - startTime) + 'ms', url); 
+    console.log(statusColor(res.statusCode), (new Date - startTime) + 'ms', req.method, url);
   };
   res.once('finish', log);
   next();
