@@ -1,9 +1,7 @@
 module.exports = {
   port: 8080,
   dir: './grafana',
-  proxy: {
-    secure: false
-  },
+  proxy: { },
   elasticsearch: {
     path: '/elasticsearch',
     target: 'http://localhost:9200'

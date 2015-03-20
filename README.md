@@ -55,7 +55,7 @@ Update `config.js` if necessary.
 };
 ```
 
-You will most likely need to update `elasticsearch.target` and `graphite.target`. You should also be aware that the proxy defaults to `secure: false`. Be sure to remove that if you're using `HTTPS` and your certificate is valid!
+You will most likely need to update `elasticsearch.target` and `graphite.target`. The target points to your instances of elasticsearch and graphite. In this case elasticsearch is running locally on it's default port and graphite is running locally on 8880.
 
 ## Start
 
