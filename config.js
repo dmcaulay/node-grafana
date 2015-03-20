@@ -10,6 +10,6 @@ module.exports = {
   },
   graphite: {
     path: '/graphite',
-    target: 'https://localhost:8880'
+    target: 'http://localhost:8880'
   }
 };

@@ -3,7 +3,11 @@ A Node.js host for [grafana](http://grafana.org/)
 
 ## Setup
 
-Install elasticsearch and make sure it's running `curl localhost:9200`.
+### Elasticsearch
+
+If you're on OSX you can run `brew install elasticsearch` and start it with `elasticsearch`
+
+### The Proxy
 
 ```
 $ git clone git@github.com:dmcaulay/node-grafana.git
@@ -13,9 +17,7 @@ $ make prereqs
 
 ## Configure
 
-Copy `grafana/config.sample.js` to `grafana/config.js`
-
-Uncomment the 'Graphite & Elasticsearch example setup' block and replace it with the following:
+Uncomment the 'Graphite & Elasticsearch example setup' block in `grafana/config.js` and replace it with the following:
 
 ```js
       // Graphite & Elasticsearch example setup
