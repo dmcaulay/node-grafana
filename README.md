@@ -5,7 +5,7 @@ A Node.js host for [grafana](http://grafana.org/)
 
 ### Elasticsearch
 
-If you're on OSX you can run `brew install elasticsearch` and start it with `elasticsearch`
+If you're on OSX you can install elasticsearch with homebrew `brew install elasticsearch` and start it `elasticsearch`.
 
 ### The Proxy
 
